@@ -11,7 +11,6 @@ import nl.hu.iac.soap.wsinterface.AverageServiceInterface;
 @WebService(endpointInterface = "nl.hu.iac.soap.wsinterface.AverageServiceInterface")
 public class AverageServiceImpl implements AverageServiceInterface {
 
-	@Override
 	public AverageResponse calculateaverage(AverageRequest request) throws Fault {
 		AverageResponse response = new AverageResponse();
 		try {
