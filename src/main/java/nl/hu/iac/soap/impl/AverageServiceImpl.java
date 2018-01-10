@@ -10,11 +10,13 @@ import nl.hu.iac.soap.wsinterface.AverageServiceInterface;
 
 @WebService(endpointInterface = "nl.hu.iac.soap.wsinterface.AverageServiceInterface")
 public class AverageServiceImpl implements AverageServiceInterface {
+	private AverageService avgService = new AverageService();
 
-	public AverageResponse calculateaverage(AverageRequest request) throws Fault {
+	public AverageResponse calculateaverage(AverageRequest request) throws Fault {		
+		
 		AverageResponse response = new AverageResponse();
 		try {
-			Double result = (request.getX() + request.getY()) / 2;
+			Double result = this.avgService.calcAverage(request.getX(), request.getY());
 			response.setResult(result);
 		} catch (RuntimeException e) {
 			AverageFault x = new AverageFault();
