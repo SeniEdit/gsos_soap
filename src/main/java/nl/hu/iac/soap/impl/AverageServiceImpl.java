@@ -16,7 +16,7 @@ public class AverageServiceImpl implements AverageServiceInterface {
 		
 		AverageResponse response = new AverageResponse();
 		try {
-			Double result = this.avgService.calcAverage(request.getX(), request.getY());
+			Double result = this.avgService.calcAverage(request.getValues());
 			response.setResult(result);
 		} catch (RuntimeException e) {
 			AverageFault x = new AverageFault();
@@ -27,4 +27,4 @@ public class AverageServiceImpl implements AverageServiceInterface {
 		}
 		return response;
 	}
-}
+} 
